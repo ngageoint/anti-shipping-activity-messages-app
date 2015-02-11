@@ -9,13 +9,33 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, MKMapViewDelegate {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    let path = NSBundle.mainBundle().pathForResource("ne_50m_land.simplify0.2", ofType: "geojson")
+    let offlineMap:OfflineMap = OfflineMap()
+    
+    func mapView(mapView: MKMapView!, rendererForOverlay overlay: MKOverlay!) -> MKOverlayRenderer! {
+        
+        var polygonRenderer = MKPolygonRenderer(overlay: overlay);
+        
+        if "ocean" == overlay.title {
+            polygonRenderer.fillColor = UIColor(red: 127/255.0, green: 153/255.0, blue: 171/255.0, alpha: 1.0)
+            polygonRenderer.strokeColor = UIColor.clearColor()
+            polygonRenderer.lineWidth = 0.0
+        }
+        else {
+            polygonRenderer.fillColor = UIColor(red: 221/255.0, green: 221/255.0, blue: 221/255.0, alpha: 1.0)
+            polygonRenderer.strokeColor = UIColor.clearColor()
+            polygonRenderer.lineWidth = 0.0
+        }
 
+        return polygonRenderer
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
@@ -53,6 +73,11 @@ class ViewController: UIViewController {
         let offlineMapAction = UIAlertAction(title: "Offline", style: .Default, handler: {
             (alert: UIAlertAction!) -> Void in
             println("Offline Map")
+
+            self.mapView.mapType = MKMapType.Standard
+            self.mapView.addOverlays(self.offlineMap.polygons)
+            
+            
         })
         
         // Action Sheet Cancel
@@ -73,5 +98,7 @@ class ViewController: UIViewController {
     
     }
 
+    
+    
 }
 

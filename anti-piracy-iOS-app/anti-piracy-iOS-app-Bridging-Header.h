@@ -10,4 +10,7 @@
 #define anti_piracy_iOS_app_anti_piracy_iOS_app_Bridging_Header_h
 
 
+#import "OfflineMapUtility.h"
+
+
 #endif

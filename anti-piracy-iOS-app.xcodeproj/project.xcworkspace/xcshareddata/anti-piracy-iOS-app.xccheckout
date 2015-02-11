@@ -14,11 +14,11 @@
 		<string>https://github.com/travisbaumgart/anti-piracy-iOS-app</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>anti-piracy-iOS-app/anti-piracy-iOS-app.xcodeproj</string>
+	<string>anti-piracy-iOS-app.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>8F49176334870B03E2A12E602948217A3F628718</key>
-		<string>../../..</string>
+		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/travisbaumgart/anti-piracy-iOS-app</string>

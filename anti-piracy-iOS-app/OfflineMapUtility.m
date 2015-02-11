@@ -16,8 +16,7 @@ static NSArray *polygons;
 
 + (NSDictionary *) dictionaryWithContentsOfJSONString:(NSString*) fileLocation {
 
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileLocation ofType:@"geojson"];
-    NSData* data = [NSData dataWithContentsOfFile:filePath];
+    NSData* data = [NSData dataWithContentsOfFile:fileLocation];
     NSError* error = nil;
     NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
     
